@@ -9,13 +9,18 @@ def dictionary(word)
     "@" => "at",
     "&" => "and"
   }
-  
+dictionary.each do |key, value|
+  if dictionary[key] == word.downcase
+    return key
+  elsif dictionary[key].is_a?(Array)
+    if dictionary[key].include?(word.downcase)
+      return key
+    end
+  end
+end
+  word  
 end
 
 def word_substituter(string)
   words = string.split(" ")
   tweet = []
-
-      
-      
-      
