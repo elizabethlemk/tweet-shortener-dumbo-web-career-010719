@@ -18,9 +18,13 @@ dictionary.each do |key, value|
     end
   end
 end
-  word  
+  word
 end
 
 def word_substituter(string)
-  words = string.split(" ")
-  tweet = []
+  tweet = string.split.collect! do |word|
+    dictionary(word)
+  end
+  tweet.join(" ")
+end
+
